@@ -22,6 +22,7 @@ namespace Lab3
                 card = new DebitCard();
             }
 
+            //handle the payment
             card.Connect();
             id = card.BeginTransaction(price);
             card.EndTransaction(id);

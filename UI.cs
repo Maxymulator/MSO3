@@ -77,6 +77,7 @@ namespace Lab3
                     payStrategy = new CoinAdapter();
                     break;
             }
+            //handle the payment
             payStrategy.HandlePayment(info, price);
 		}
 
