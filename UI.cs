@@ -25,45 +25,10 @@ namespace Lab3
 			initializeControls ();
 		}
 
-		private void handlePayment(UIInfo info)
+		private void handlePayment(UIInfo info) // naam laten we staan, maar dit is onze transactie klasse nu
 		{
-			// *************************************
-			// This is the code you need to refactor
-			// *************************************
-
-			// Get number of tariefeenheden
-			int tariefeenheden = Tariefeenheden.getTariefeenheden (info.From, info.To);
-
-			// Compute the column in the table based on choices
-			int tableColumn;
-			// First based on class
-			switch (info.Class) {
-			case UIClass.FirstClass:
-				tableColumn = 3;
-				break;
-			default:
-				tableColumn = 0;
-				break;
-			}
-			// Then, on the discount
-			switch (info.Discount) {
-			case UIDiscount.TwentyDiscount:
-				tableColumn += 1;
-				break;
-			case UIDiscount.FortyDiscount:
-				tableColumn += 2;
-				break;
-			}
-
-			// Get price
-			float price = PricingTable.getPrice (tariefeenheden, tableColumn);
-			if (info.Way == UIWay.Return) {
-				price *= 2;
-			}
-			// Add 50 cent if paying with credit card
-			if (info.Payment == UIPayment.CreditCard) {
-				price += 0.50f;
-			}
+            // Get price
+			float price = PriceCalculator.CalculatePrice(info);
 
             // Pay
             switch (info.Payment)
@@ -76,8 +41,11 @@ namespace Lab3
                     payStrategy = new CoinAdapter();
                     break;
             }
+
             //handle the payment
             payStrategy.HandlePayment(info, price);
+
+            PrinterHandler.Print(price);
 		}
 
 #region Set-up -- don't look at it

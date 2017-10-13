@@ -8,19 +8,20 @@ namespace Lab3
 {
     static class PrinterHandler
     {
-        public static void Print()
+        public static void Print(float price)
         {
-            PrintReceipt(50);
+            PrintTicket();
+            PrintReceipt(price);
         }
 
         static void PrintTicket()
         {
-
+            MessageBox.Show("Een moment geduld; uw ticket wordt geprint."); //Met een print call; dit is een call naar hardware die we hier niet programmeren.
         }
 
-        static void PrintReceipt(int price)
+        static void PrintReceipt(float price)
         {
-            MessageBox.Show("Transactie voltooid: U heeft " + price + " cent betaald.");
+            MessageBox.Show("Transactie voltooid: U heeft " + price + " euro betaald.");
         }
     }
 }

@@ -40,6 +40,7 @@
     <Compile Include="CardAdapter.cs" />
     <Compile Include="CoinAdapter.cs" />
     <Compile Include="Payment.cs" />
+    <Compile Include="PriceCalculator.cs" />
     <Compile Include="PrinterHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

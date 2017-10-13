@@ -28,7 +28,6 @@ namespace Lab3
 		public int BeginTransaction (float amount)
 		{
 			MessageBox.Show ("Begin transaction 1 of " + amount + " EUR");
-            PrinterHandler.Print();
 			return 1;
 		}
 

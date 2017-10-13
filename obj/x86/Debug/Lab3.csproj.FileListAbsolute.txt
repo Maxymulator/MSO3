@@ -8,3 +8,8 @@ S:\MSO3\obj\x86\Debug\Lab3.pdb
 S:\MSO3\obj\x86\Debug\Lab3.csprojResolveAssemblyReference.cache
 S:\MSO3\bin\Debug\Lab3.exe
 S:\MSO3\bin\Debug\Lab3.pdb
+D:\Documents\Visual Studio 2015\MSO3\obj\x86\Debug\Lab3.exe
+D:\Documents\Visual Studio 2015\MSO3\obj\x86\Debug\Lab3.pdb
+D:\Documents\Visual Studio 2015\MSO3\bin\Debug\Lab3.exe
+D:\Documents\Visual Studio 2015\MSO3\bin\Debug\Lab3.pdb
+D:\Documents\Visual Studio 2015\MSO3\obj\x86\Debug\Lab3.csprojResolveAssemblyReference.cache
