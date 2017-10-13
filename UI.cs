@@ -17,13 +17,14 @@ namespace Lab3
 		RadioButton fortyDiscount;
 		ComboBox payment;
 		Button pay;
+        private Payment payStrategy;
 
 		public UI ()
 		{
 			initializeControls ();
 		}
 
-		private void handlePayment(UIInfo info)
+        private void handlePayment(UIInfo info)
 		{
 			// *************************************
 			// This is the code you need to refactor
@@ -53,6 +54,8 @@ namespace Lab3
 				break;
 			}
 
+           
+
 			// Get price
 			float price = PricingTable.getPrice (tariefeenheden, tableColumn);
 			if (info.Way == UIWay.Return) {
@@ -63,27 +66,18 @@ namespace Lab3
 				price += 0.50f;
 			}
 
-			// Pay
-			switch (info.Payment) {
-			case UIPayment.CreditCard:
-				CreditCard c = new CreditCard ();
-				c.Connect ();
-				int ccid = c.BeginTransaction (price);
-				c.EndTransaction (ccid);
-				break;
-			case UIPayment.DebitCard:
-				DebitCard d = new DebitCard ();
-				d.Connect ();
-				int dcid = d.BeginTransaction (price);
-				d.EndTransaction (dcid);
-				break;
-			case UIPayment.Cash:
-				IKEAMyntAtare2000 coin = new IKEAMyntAtare2000 ();
-				coin.starta ();
-				coin.betala ((int) Math.Round(price * 100));
-				coin.stoppa ();
-				break;
-			}
+            // Pay
+            switch (info.Payment)
+            {
+                case UIPayment.CreditCard:
+                case UIPayment.DebitCard:
+                    payStrategy = new CardAdapter();
+                    break;
+                case UIPayment.Cash:
+                    payStrategy = new CoinAdapter();
+                    break;
+            }
+            payStrategy.HandlePayment(info, price);
 		}
 
 #region Set-up -- don't look at it
