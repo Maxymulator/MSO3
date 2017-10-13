@@ -8,7 +8,6 @@ namespace Lab3
     // The abstract strategy for the payment system
     abstract class Payment
     {
-        //handle the payment
         public virtual void HandlePayment(UIInfo info, float price)
         {
 

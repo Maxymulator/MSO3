@@ -18,6 +18,8 @@ namespace Lab3
 		ComboBox payment;
 		Button pay;
 
+        Payment payStrategy;
+
 		public UI ()
 		{
 			initializeControls ();
